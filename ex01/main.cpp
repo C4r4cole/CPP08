@@ -16,7 +16,38 @@ int main(void)
 {
 	try
 	{
+		srand(time(NULL));
+
+		std::vector<int>	values(10000);
+		Span	sp(20500);
 		
+		// ===================== 10 000 values ========================
+		std::cout << "---------- 10 000 values ----------" << std::endl;
+		for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
+			*it = rand() % 10000;
+
+		sp.addRange(values.begin(), values.end());
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+
+		// ===================== 20 000 values ========================
+		std::cout << "---------- 20 000 values ----------" << std::endl;
+		for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
+			*it = rand() % 20000;
+		sp.addRange(values.begin(), values.end());
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+
+		// ===================== 30 000 values ========================
+		std::cout << "---------- 30 000 values ----------" << std::endl;
+		for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
+			*it = rand() % 30000;
+		sp.addRange(values.begin(), values.end());
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{

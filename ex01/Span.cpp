@@ -34,6 +34,11 @@ Span &Span::operator =(const Span &src)
     return (*this);
 }
 
+std::vector<int>     Span::getTab()
+{
+    return (this->_tab);
+}
+
 void    Span::addNumber(int nbr)
 {
     if (_tab.size() >= _capacity)

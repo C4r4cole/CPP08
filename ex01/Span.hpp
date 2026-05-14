@@ -32,9 +32,21 @@ class Span
         Span &operator =(const Span &src);
         ~Span();
 
-        void    addNumber(int nbr);
-        int     shortestSpan();
-        int     longestSpan();
+        std::vector<int>    getTab();
+
+        void                addNumber(int nbr);
+        int                 shortestSpan();
+        int                 longestSpan();
+
+        template<typename Iterator>
+        void    addRange(Iterator first, Iterator last)
+        {
+            int rangeLength = std::distance(first, last);
+
+            if (rangeLength + _tab.size() > _capacity)
+                throw std::out_of_range("too much element compared to capacity");
+            _tab.insert(_tab.end(), first, last);
+        }
 };
 
 #endif
