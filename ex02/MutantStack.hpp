@@ -22,9 +22,9 @@
 template<typename T>
 class MutantStack : public std::stack<T>
 {
-private:
 public:
     typedef typename std::stack<T>::container_type::iterator iterator;
+    
     MutantStack();
     MutantStack(const MutantStack &cpy);
     MutantStack &operator =(const MutantStack &src);
